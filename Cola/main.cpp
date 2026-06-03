@@ -1,37 +1,27 @@
 #include <iostream>
 #include "Cola.h"
 #include "Imprimir.h"
+#include "EscribirTxt.h"
 
 using namespace std;
 
 int main()
 {
-    Cola* cola = new Cola();
+    EscribirTxt* estxt = new EscribirTxt("../archivoTxt.txt");
     Imprimir* imp = new Imprimir();
 
-    cout << "Agregar elementos: 9, -5, -2 y 11" << endl;
-    cola->insertarElemento(9);
-    cola->insertarElemento(-5);
-    cola->insertarElemento(-2);
-    cola->insertarElemento(11);
+    Cola* cola1 = new Cola();
+    cola1->insertarElemento(2);
+    cola1->insertarElemento(1);
+    cola1->insertarElemento(11);
+    cola1->insertarElemento(19);
+    cola1->insertarElemento(11);
+    cola1->insertarElemento(11);
+    cola1->insertarElemento(10);
+    cola1->insertarElemento(14);
+    imp->imp(cola1);
 
-    imp->imp(cola);
+    estxt->escribirCola(cola1);
 
-    cout << "Eliminar el primer elmento" << endl;
-    cola->eliminarElemento();
-
-    imp->imp(cola);
-
-    cout << "Agregar elemento: 8" << endl;
-    cola->insertarElemento(8);
-
-    imp->imp(cola);
-
-    cout << "Esta vacia?: " << cola->esVacia() << endl;
-    cout << "Tamanio: " << cola->GetTamanio() << endl;
-    cout << "Primer elemento: " << cola->GetPrimerElemento() << endl;
-    cout << "Ultimo elemento: " << cola->GetUltimoElemento() << endl;
-    cout << "Direccion del primer elemento: " << cola->GetPrimero() << endl;
-    cout << "Direccion del ultimo elemento: " << cola->GetUltimo() << endl;
     return 0;
 }

@@ -1,35 +1,30 @@
 #include <iostream>
 #include "Pila.h"
 #include "Imprimir.h"
+#include "EscribirTxt.h"
 
 using namespace std;
 
 int main()
 {
-    Pila* pila = new Pila();
+    EscribirTxt* estxt = new EscribirTxt("../archivoTxt.txt");
     Imprimir* imp = new Imprimir();
 
-    cout << "Agregar elementos: 2, 15, 0 y -2" << endl;
-    pila->insertarElemento(2);
-    pila->insertarElemento(15);
-    pila->insertarElemento(0);
-    pila->insertarElemento(-2);
+    Pila* pila1 = new Pila();
+    pila1->insertarElemento(13);
+    pila1->insertarElemento(12);
+    pila1->insertarElemento(6);
+    pila1->insertarElemento(5);
+    pila1->insertarElemento(12);
+    pila1->insertarElemento(3);
+    pila1->insertarElemento(20);
+    pila1->insertarElemento(7);
+    pila1->insertarElemento(20);
+    pila1->insertarElemento(17);
+    imp->imp(pila1);
 
-    imp->imp(pila);
+    estxt->escribirPila(pila1);
 
-    cout << "Eliminar el primer elmento" << endl;
-    pila->eliminarElemento();
 
-    imp->imp(pila);
-
-    cout << "Agregar elemento: 8" << endl;
-    pila->insertarElemento(8);
-
-    imp->imp(pila);
-
-    cout << "Esta vacia?: " << pila->esVacia() << endl;
-    cout << "Tamanio: " << pila->GetTamanio() << endl;
-    cout << "Primer elemento: " << pila->GetPrimerElemento() << endl;
-    cout << "Direccion del primer elemento: " << pila->GetPrimero() << endl;
     return 0;
 }
